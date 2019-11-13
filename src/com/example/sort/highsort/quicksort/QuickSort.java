@@ -1,4 +1,4 @@
-package com.example.quicksort;
+package com.example.sort.highsort.quicksort;
 
 /*
  * ¿ìËÙÅÅĞò£º

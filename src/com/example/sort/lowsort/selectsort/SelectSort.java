@@ -1,4 +1,4 @@
-package com.example.selectsort;
+package com.example.sort.lowsort.selectsort;
 
 /*
  * 选择排序，排序选定第一个与所有数值进行排序，如1位置对比2位置，1位置对比3位置，以此类推。

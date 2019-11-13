@@ -1,4 +1,4 @@
-package com.example.partition;
+package com.example.sort.highsort.partition;
 
 /*
  * 划分（快速排序会使用）：划分是选取一个数值作为基准值pivot，将数组中比pivot大的数据放在左边，比pivot小的数据放在右边

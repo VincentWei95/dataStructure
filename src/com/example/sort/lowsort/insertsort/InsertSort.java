@@ -1,4 +1,4 @@
-package com.example.insertsort;
+package com.example.sort.lowsort.insertsort;
 
 /*
  * 插入排序，指定一个数作为基值，（一般是第二个开始作为基值[elements[out]]），以基值作为分界线，基值以后默认为有序不处理，

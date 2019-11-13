@@ -1,4 +1,4 @@
-package com.example.partition;
+package com.example.sort.highsort.partition;
 
 public class Main {
 	

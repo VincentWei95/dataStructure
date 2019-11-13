@@ -1,4 +1,4 @@
-package com.example.mergesort;
+package com.example.sort.lowsort.mergesort;
 
 public class Main {
 

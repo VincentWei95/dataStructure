@@ -1,4 +1,4 @@
-package com.example.bubblesort;
+package com.example.sort.lowsort.bubblesort;
 
 /*
  * 冒泡排序，相邻的两个数之间进行对比，如1位置对比2位置，2位置对比3位置，以此类推。

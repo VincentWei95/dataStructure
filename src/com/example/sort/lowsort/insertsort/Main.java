@@ -1,4 +1,4 @@
-package com.example.insertsort;
+package com.example.sort.lowsort.insertsort;
 
 public class Main {
 	

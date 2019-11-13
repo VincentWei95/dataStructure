@@ -1,4 +1,4 @@
-package com.example.selectsort;
+package com.example.sort.lowsort.selectsort;
 
 public class Main {
 

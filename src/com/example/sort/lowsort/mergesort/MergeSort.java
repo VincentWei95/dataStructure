@@ -1,4 +1,4 @@
-package com.example.mergesort;
+package com.example.sort.lowsort.mergesort;
 
 /*
  * 归并排序，内部使用的是递归的方式
