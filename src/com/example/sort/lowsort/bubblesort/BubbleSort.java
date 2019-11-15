@@ -80,6 +80,17 @@ public class BubbleSort {
 	    		}
 	    	}
 	    }
+
+	    // À≥–Ú–¥∑®
+		for (out = 0; out < index - 1; out++) {
+			for (in = 0; in < index - out - 1; in++) {
+				if (elements[in] > elements[in + 1]) {
+					int temp = elements[in];
+					elements[in] = elements[in + 1];
+					elements[in + 1] = temp;
+				}
+			}
+		}
 	}
 
 }
