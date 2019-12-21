@@ -5,6 +5,7 @@ public class Main {
 	public static void main(String[] args) {
 		int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8,  9, 10 };
 		System.out.println(halfSearch2(arr, 7));
+		System.out.println(halfSearch3(arr, 0, arr.length - 1, 7));
 	}
 	
 	private static int halfSearch(int[] arr, int data) {
@@ -45,5 +46,19 @@ public class Main {
 		}
 		return mid;
 	}
-	
+
+	// µİ¹é¶ş·Ö·¨ËÑË÷
+	private static int halfSearch3(int[] arr, int min, int max, int target) {
+		int mid = (min + max) / 2;
+
+		if (arr[mid] == target) {
+			return mid;
+		} else {
+			if (target > arr[mid]) {
+				return halfSearch3(arr, mid + 1, max, target);
+			} else {
+				return halfSearch3(arr, min, mid - 1, target);
+			}
+		}
+	}
 }
