@@ -19,12 +19,7 @@ public class Main {
 //		int result = Triangle.triangle(number);
 //		int result = Factorial.factorial(number);
 //		System.out.println("triangle = " + result);
-		
-		// 递归二分法查找
-//		int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8,  9, 10 };
-//		HalfSearch halfSearch = new HalfSearch(arr);
-//		System.out.println(halfSearch.find(8, 0, arr.length));
-		
+
 		// 汉诺塔问题
 		Tower.doTower(3, 'A', 'B', 'C');
 	}

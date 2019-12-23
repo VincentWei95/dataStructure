@@ -3,7 +3,7 @@ package com.example.tree;
 public class Main {
 	
 	public static void main(String[] args) {
-		Tree tree = new Tree();
+		BinaryTree tree = new BinaryTree();
 		tree.insert(50, 15);
 		tree.insert(25, 12);
 		tree.insert(75, 17);

@@ -10,11 +10,11 @@ package com.example.tree;
  * 
  * 时间复杂度：O(logN)
  */
-public class Tree {
+public class BinaryTree {
 
 	private Node rootNode; // 根节点
 	
-	public Tree() {
+	public BinaryTree() {
 		rootNode = null;
 	}
 	
@@ -182,6 +182,31 @@ public class Tree {
 		
 		return current;
 	}
+
+	// 查找最小值
+	public Node minimun() {
+		Node current = rootNode;
+		Node last = null;
+
+		while (current != null) {
+			last = current;
+			current = current.lefeNode;
+		}
+		return last;
+	}
+
+	// 查找最大值
+	public Node maximun() {
+		Node current = rootNode;
+		Node last = null;
+
+		while (current != null) {
+			last = current;
+			current = current.rightNode;
+		}
+
+		return last;
+	}
 	
 	public static final int PRE_ORDER = 0; // 前序遍历
 	public static final int IN_ORDER = 1; // 中序遍历
@@ -202,8 +227,14 @@ public class Tree {
 			break;
 		}
 	}
-	
-	// 前序遍历
+
+	/**
+	 * 前序遍历
+	 *
+	 * 步骤：
+	 * 先访问根节点，然后访问左子树，最后访问右子树。
+	 * 在访问左、右子树的时候，同样，先访问子树的根节点，再访问子树根节点的左子树和右子树，不断递归
+	 */
 	private void preOrder(Node node) {
 		if (node != null) {
 			System.out.print(node.key + " ");
@@ -212,9 +243,13 @@ public class Tree {
 		}
 	}
 	
-	// 中序遍历
-	// 步骤：递归查找树的左节点，访问该节点；递归查找树的右节点
 	/**
+	 * 中序遍历
+	 *
+	 * 步骤：
+	 * 先访问左子树，然后访问根节点，最后访问右子树。
+	 * 在访问左、右子树的时候，同样，先访问子树的左边，再访问子树的根节点，最后再访问子树的右边，不断递归
+	 *
 	 *       10
 	 *  5    |       15
 	 *  |    |    6  |   2
@@ -230,8 +265,13 @@ public class Tree {
 			inOrder(node.rightNode);
 		}
 	}
-	
-	// 后序遍历
+
+	/**
+	 * 后序遍历
+	 *
+	 * 步骤：
+	 * 先访问左子树，然后访问右子树，最后访问根节点。同样不断递归
+	 */
 	private void postOrder(Node node) {
 		if (node != null) {
 			postOrder(node.lefeNode);
@@ -239,30 +279,4 @@ public class Tree {
 			System.out.print(node.key + " ");
 		}
 	}
-	
-	// 查找最小值
-	public Node minimun() {
-		Node current = rootNode;
-		Node last = null;
-		
-		while (current != null) {
-			last = current;
-			current = current.lefeNode;
-		}
-		return last;
-	}
-	
-	// 查找最大值
-	public Node maximun() {
-		Node current = rootNode;
-		Node last = null;
-		
-		while (current != null) {
-			last = current;
-			current = current.rightNode;
-		}
-		
-		return last;
-	}
-	
 }
