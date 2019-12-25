@@ -91,6 +91,21 @@ public class BubbleSort {
 				}
 			}
 		}
-	}
 
+		// ”≈ªØ–¥∑®
+		boolean isChanged = true;
+		for (out = 0; out < index - 1 && isChanged; out++) {
+			isChanged = false;
+
+			for (in = 0; in < index - out - 1; in++) {
+				if (elements[in] > elements[in + 1]) {
+					isChanged = true;
+
+					int temp = elements[in];
+					elements[in] = elements[in + 1];
+					elements[in + 1] = temp;
+				}
+			}
+		}
+	}
 }
