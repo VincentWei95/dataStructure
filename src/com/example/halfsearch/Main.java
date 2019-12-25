@@ -4,6 +4,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8,  9, 10 };
+		System.out.println(halfSearch(arr, 7));
 		System.out.println(halfSearch2(arr, 7));
 		System.out.println(halfSearch3(arr, 0, arr.length - 1, 7));
 	}
@@ -13,7 +14,7 @@ public class Main {
 		int max = arr.length - 1;
 		
 		while (min <= max) {
-			int mid = (min + max) / 2;
+			int mid = min + (max - min) / 2;
 			
 			if (arr[mid] > data) {
 				max = mid - 1;
@@ -26,11 +27,11 @@ public class Main {
 		}
 		return -1;
 	}
-	// 二分法查找
+
 	private static int halfSearch2(int[] arr, int data) {
 		int min = 0;
 		int max = arr.length - 1;
-		int mid = (min + max) / 2;
+		int mid = min + (max - min) / 2;
 		
 		while (arr[mid] != data) {
 			if (arr[mid] > data) {
@@ -41,15 +42,17 @@ public class Main {
 			
 			if (min > max)
 				return -1;
-			
-			mid = (min + max) / 2;
+
+			mid = min + (max - min) / 2;
 		}
 		return mid;
 	}
 
-	// 递归二分法搜索
+	// 递归二分法搜索，时间复杂度：O(logn)
 	private static int halfSearch3(int[] arr, int min, int max, int target) {
-		int mid = (min + max) / 2;
+		if (min > max) return -1;
+
+		int mid = min + (max - min) / 2;
 
 		if (arr[mid] == target) {
 			return mid;
