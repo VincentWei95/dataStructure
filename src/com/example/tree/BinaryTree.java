@@ -1,6 +1,6 @@
 package com.example.tree;
 
-/*
+/**
  * 二叉树，每个节点都有子节点和右节点，或只有一个左节点，一个右节点，而没有左节点和右节点的叫叶子节点（相当于树的末端）
  * 节点存有key和data数据，一般使用key进行插入、删除等操作，
  * 要插入或查找的key大于当前节点的key，往右边节点走；要插入或查找的key小于当前节点的key，往左边走
@@ -32,10 +32,10 @@ public class BinaryTree {
 				parent = current; // parent存储每次遍历的父节点，方便对子节点进行操作
 				
 				if (newNode.key < current.key) {
-					current = current.lefeNode;
+					current = current.leftNode;
 					
 					if (current == null) { // 左子节点为null，可以插入
-						parent.lefeNode = newNode;
+						parent.leftNode = newNode;
 						return;
 					}
 					
@@ -65,7 +65,7 @@ public class BinaryTree {
 			
 			if (key < current.key) { // key小于当前节点的key，走左节点
 				isLeftNode = true;
-				current = current.lefeNode;
+				current = current.leftNode;
 			} else if (key > current.key) { // key大于当前节点的key，走右节点
 				isLeftNode = false;
 				current = current.rightNode;
@@ -79,12 +79,12 @@ public class BinaryTree {
 		
 		// 找到了要删除的节点
 		// 如果没有左右节点
-		if (current.lefeNode == null && current.rightNode == null) { 
+		if (current.leftNode == null && current.rightNode == null) {
 			
 			if (current == rootNode) {  // 如果是根节点，把根节点置为null
 				rootNode = null;
 			} else if (isLeftNode) { // 要删除的节点是左节点，parent是它的父节点，与它断开连接
-				parent.lefeNode = null;
+				parent.leftNode = null;
 			} else { // 要删除的节点是左节点，parent是它的父节点，与它断开连接
 				parent.rightNode = null;
 			}
@@ -94,15 +94,15 @@ public class BinaryTree {
 			if (current == rootNode) {
 				rootNode = null;
 			} else if (isLeftNode) {
-				parent.lefeNode = current.lefeNode;
+				parent.leftNode = current.leftNode;
 			} else {
-				parent.rightNode = current.lefeNode;
+				parent.rightNode = current.leftNode;
 			}
-		} else if (current.lefeNode == null) { // 要删除的节点有右节点
+		} else if (current.leftNode == null) { // 要删除的节点有右节点
 			if (current == rootNode) {
 				rootNode = null;
 			} else if (isLeftNode) {
-				parent.lefeNode = current.rightNode;
+				parent.leftNode = current.rightNode;
 			} else {
 				parent.rightNode = current.rightNode;
 			}
@@ -113,7 +113,7 @@ public class BinaryTree {
 			if (current == rootNode) {
 				rootNode = successor;
 			} else if (isLeftNode) {
-				parent.lefeNode = successor;
+				parent.leftNode = successor;
 			} else {
 				parent.rightNode = successor;
 			}
@@ -151,13 +151,13 @@ public class BinaryTree {
 		while (current != null) {
 			successorParent = successor; // successorParent后继节点的父节点
 			successor = current; // successor就是后继节点
-			current = current.lefeNode;
+			current = current.leftNode;
 		}
 		
 		if (successor != delNode.rightNode) {
 			// 把后继节点原来的位置置为null
 			// successor是30，successor.rightNode是null，successorParent是35，successorParent.leftNode原本是30
-			successorParent.lefeNode = successor.rightNode; 
+			successorParent.leftNode = successor.rightNode;
 			// delNode是25，delNode.rightNode是35，把delNode.rightNode作为30的右节点，就完成了连接
 			successor.rightNode = delNode.rightNode;
 		}
@@ -170,7 +170,7 @@ public class BinaryTree {
 		
 		while (current.key != key) {
 			if (key < current.key) { // 数值如果小于当前树的根节点或子节点，则往左边走
-				current = current.lefeNode;
+				current = current.leftNode;
 			} else if (key > current.key) { // 数值如果大于当前输的根节点或子节点，则往右边走
 				current = current.rightNode;
 			}
@@ -190,7 +190,7 @@ public class BinaryTree {
 
 		while (current != null) {
 			last = current;
-			current = current.lefeNode;
+			current = current.leftNode;
 		}
 		return last;
 	}
@@ -238,7 +238,7 @@ public class BinaryTree {
 	private void preOrder(Node node) {
 		if (node != null) {
 			System.out.print(node.key + " ");
-			preOrder(node.lefeNode);
+			preOrder(node.leftNode);
 			preOrder(node.rightNode);
 		}
 	}
@@ -260,8 +260,8 @@ public class BinaryTree {
 	 */
 	private void inOrder(Node node) {
 		if (node != null) {
-			inOrder(node.lefeNode);
-			System.out.print(node.lefeNode + " ");
+			inOrder(node.leftNode);
+			System.out.print(node.leftNode + " ");
 			inOrder(node.rightNode);
 		}
 	}
@@ -274,9 +274,26 @@ public class BinaryTree {
 	 */
 	private void postOrder(Node node) {
 		if (node != null) {
-			postOrder(node.lefeNode);
+			postOrder(node.leftNode);
 			postOrder(node.rightNode);
 			System.out.print(node.key + " ");
+		}
+	}
+
+	public static class Node {
+		public int key;
+		public int data;
+		public Node leftNode; // 左节点
+		public Node rightNode; // 右节点
+
+		public Node(int key, int data) {
+			this.key = key;
+			this.data = data;
+		}
+
+		@Override
+		public String toString() {
+			return "key = " + key + ", data = " + data;
 		}
 	}
 }
