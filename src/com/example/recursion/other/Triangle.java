@@ -1,4 +1,4 @@
-package com.example.recursion;
+package com.example.recursion.other;
 
 /**
  * 三角数字序列的算法：第n个三角数字=(n^2 + n) / 2

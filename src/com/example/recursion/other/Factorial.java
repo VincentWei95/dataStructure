@@ -1,4 +1,4 @@
-package com.example.recursion;
+package com.example.recursion.other;
 
 /*
  * ½×³Ë
