@@ -1,59 +1,52 @@
 package com.example.stack;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 public class Main {
-	
+
+	/**
+	 * 有效的括号序列：
+	 *
+	 * 给你一个括号序列，里面包含小括号，中括号和大括号。你要判断这个括号序列是否有效。
+	 * 有效的括号序列要求，每个左括号都必须有一个同类的右括号与它正确配对。另外，空字符串认为是有效的括号序列
+	 *
+	 * 比如说，给你的序列是：
+	 *
+	 * ()[]{}
+	 *
+	 * 小括号/中括号/大括号的左右括号都能正确配对，因此这是一个有效的括号序列
+	 *
+	 * 再比如说给你的序列是：
+	 *
+	 * ([)]
+	 *
+	 * 这里面虽然正好有一对小括号和一对中括号，但它们的顺序不对，括号间无法正确配对，因此这不是一个有效的括号序列
+	 *
+	 * 再比如给你的序列是：
+	 *
+	 * [()]
+	 *
+	 * 则是一个有效的括号序列
+	 */
 	public static void main(String[] args) {
-//		Stack stack = new Stack(10);
-//		stack.push(20);
-//		stack.push(40);
-//		stack.push(60);
-//		stack.push(80);
-//		
-//		while (!stack.isEmpty()) {
-//			System.out.println(stack.pop());
-//		}
-		
-//		String input = null;
-//		String output = null;
-//		while (true) {
-//			System.out.print("Enter a string: ");
-//			System.out.flush();
-//			input = getString();
-//			if (input.equals("")) 
-//				break;
-//			
-//			ReverseObj reverseObj = new ReverseObj(input);
-//			output = reverseObj.reverse();
-//			System.out.println("Reversed: " + output);
-//		}
-		
-		String input = null;
-		while (true) {
-			System.out.print("Enter a bracket: ");
-			System.out.flush();
-			input = getString();
-			if (input.equals(""))
-				break;
-			
-			BracketCheck check = new BracketCheck(input);
-			check.check();
-		}
-	}
-	
-	private static String getString() {
-		String s = null;
-		try {
-			InputStreamReader reader = new InputStreamReader(System.in);
-			BufferedReader bufferedReader = new BufferedReader(reader);
-			s = bufferedReader.readLine();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return s;
+		Main main = new Main();
+		System.out.println(main.isValid("()[]{}"));
+		System.out.println(main.isValid("([)]"));
 	}
 
+	private boolean isValid(String str) {
+		Stack<Character> stack = new Stack<>();
+		for (int i = 0; i < str.length(); i++) {
+			char c = str.charAt(i);
+			if (c == '(' || c == '[' || c == '{') {
+				stack.push(c);
+			} else {
+				if (stack.isEmpty()) return false;
+
+				char top = stack.pop();
+				if (top == '(' && c != ')') return false;
+				if (top == '[' && c != ']') return false;
+				if (top == '{' && c != '}') return false;
+			}
+		}
+		return stack.isEmpty();
+	}
 }
