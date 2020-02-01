@@ -1,5 +1,13 @@
 package com.example.recursion;
 
+/**
+ * 移除链表元素：
+ *
+ * 删除链表中等于给定值val的所有节点
+ *
+ * 输入: 1->2->6->3->4->5->6, val = 6
+ * 输出: 1->2->3->4->5
+ */
 public class RemoveLinkElement {
 
     public static void main(String[] args) {
