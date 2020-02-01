@@ -29,6 +29,7 @@ package com.example.heap;
  * 2、它的左子节点的下标为2 * x + 1
  * 3、它的右子节点的下标为2 * x + 2
  */
+@Deprecated
 public class Heap {
     // 要把这个数组看成是一个完全二叉树来处理，再根据上面的获取节点要点方法对比交换操作
     private Node[] elements;
