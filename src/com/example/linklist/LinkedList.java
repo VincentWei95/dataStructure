@@ -83,6 +83,21 @@ public class LinkedList<E> {
         return remove(size - 1);
     }
 
+    public void removeElement(E e) {
+        Node prev = dummyHead;
+        while (prev.next != null) {
+            if (prev.next.e.equals(e)) break;
+            prev = prev.next;
+        }
+
+        if (prev.next != null) {
+            Node delNode = prev.next;
+            prev.next = delNode.next;
+            delNode.next = null;
+            size--;
+        }
+    }
+
     // 修改链表的第index(0-based)个位置的元素为e
     // 在链表中不是一个常用的操作
     public E get(int index) {

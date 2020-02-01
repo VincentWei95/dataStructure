@@ -1,4 +1,4 @@
-package com.example.tree;
+package com.example.tree.bst;
 
 import java.util.LinkedList;
 import java.util.Queue;

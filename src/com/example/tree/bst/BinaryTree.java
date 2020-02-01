@@ -1,4 +1,4 @@
-package com.example.tree;
+package com.example.tree.bst;
 
 /**
  * 二叉树，每个节点都有子节点和右节点，或只有一个左节点，一个右节点，而没有左节点和右节点的叫叶子节点（相当于树的末端）
@@ -10,6 +10,7 @@ package com.example.tree;
  * 
  * 时间复杂度：O(logN)
  */
+@Deprecated
 public class BinaryTree {
 
 	private Node rootNode; // 根节点
